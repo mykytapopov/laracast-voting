@@ -14,7 +14,7 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="font-sans text-gray-900 text-sm h-full bg-gradient-to-bl from-gray-800 to-gray-950 bg-no-repeat">
+<body class="font-sans text-gray-900 text-sm h-full bg-gradient-to-bl from-gray-800 to-gray-950 bg-no-repeat bg-fixed">
 <header class="flex items-center justify-between px-8 py-4">
     <a href="#" class="dark:text-gray-400 dark:hover:text-white focus:outline"><img src="{{ asset('img/negative-logo.svg') }}" alt="logo"></a>
     <div class="flex items-center">
