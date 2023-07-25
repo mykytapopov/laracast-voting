@@ -20,7 +20,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                 </svg>
             </div>
-            <input type="search" placeholder="Find and idea" class="w-full rounded-xl bg-gray-800 px-4 py-2 pl-8 border-none placeholder-text-gray-700">
+            <input type="search" placeholder="Find and idea" class="w-full rounded-xl bg-gray-800 px-4 py-2 pl-8 border-none placeholder-gray-500">
         </div>
     </div>
     <div class="ideas-container space-y-6 my-6">
