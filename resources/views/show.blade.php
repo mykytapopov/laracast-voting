@@ -12,8 +12,11 @@
     <div class="idea-container bg-gray-800 rounded-xl flex mt-4">
         <div class="flex px-4 py-6 w-full">
             <div class="flex-none">
-                <a href="#"><img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar"
-                                 class="w-14 h-14 rounded-xl"></a>
+                <a href="#">
+                    <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1"
+                         alt="avatar"
+                         class="w-14 h-14 rounded-xl">
+                </a>
             </div>
             <div class="mx-4 w-full">
                 <h4 class="text-xl font-semibold">
@@ -66,18 +69,114 @@
 
     <div class="buttons-container flex items-center justify-between mt-6">
         <div class="flex items-center space-x-4 ml-6">
-            <button
-                class="bg-blue-500 w-32 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150">
-                <span>Reply</span>
-            </button>
-            <button type="button"
-                    class="flex w-32 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
-                <span class="mr-1">Set Status</span>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                     stroke="currentColor" class="w-4 h-4">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>
-            </button>
+            <div class="relative">
+                <button
+                    class="bg-blue-500 w-32 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150">
+                    <span>Reply</span>
+                </button>
+                <div
+                    class="hidden absolute z-10 w-96 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2">
+                    <form action="#" method="POST" class="space-y-4 px-4">
+                        <div>
+                        <textarea name="idea_add" id="idea_add" cols="30" rows="4"
+                                  class="w-full rounded-xl bg-gray-700 text-sm border-none px-4 py-2 placeholder-gray-500"
+                                  placeholder="Go ahead, don't be shy. Share your thoughts..."></textarea>
+                        </div>
+                        <div class="flex items-center justify-between space-x-3">
+                            <button type="button"
+                                    class="flex w-1/2 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor" class="w-4 h-4 transform -rotate-45">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                                </svg>
+                                <span class="ml-1">Attach</span>
+                            </button>
+                            <button
+                                class="bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
+                                type="submit">
+                                <span>Post</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="relative">
+                <button type="button"
+                        class="flex w-32 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
+                    <span class="mr-1">Set Status</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>
+                </button>
+                <div
+                    class="absolute z-10 w-72 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2">
+                    <form action="#" method="POST" class="space-y-4 px-4">
+                        <div class="space-y-2">
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="text-gray-500 border-none focus:ring-offset-0 focus:ring-0" checked name="status" value="open">
+                                    <span class="ml-2">Open</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="text-purple-500 border-none focus:ring-offset-0 focus:ring-0" name="status" value="considering">
+                                    <span class="ml-2">Considering</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="text-yellow-500 border-none focus:ring-offset-0 focus:ring-0" name="status" value="in_progress">
+                                    <span class="ml-2">In Progress</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="text-green-500 border-none focus:ring-offset-0 focus:ring-0" name="status" value="implemented">
+                                    <span class="ml-2">Implemented</span>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="inline-flex items-center">
+                                    <input type="radio" class="text-red-500 border-none focus:ring-offset-0 focus:ring-0" name="status" value="closed">
+                                    <span class="ml-2">Closed</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                        <textarea name="idea_add" id="idea_add" cols="30" rows="2"
+                                  class="w-full rounded-xl bg-gray-700 text-xs border-none px-4 py-2 placeholder-gray-500"
+                                  placeholder="Add an update comment (optional)"></textarea>
+                        </div>
+
+                        <div class="flex items-center justify-between space-x-3">
+                            <button type="button"
+                                    class="flex w-1/2 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                     stroke-width="1.5" stroke="currentColor" class="w-4 h-4 transform -rotate-45">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                          d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
+                                </svg>
+                                <span class="ml-1">Attach</span>
+                            </button>
+                            <button
+                                class="bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
+                                type="submit">
+                                <span>Update</span>
+                            </button>
+                        </div>
+
+                        <div>
+                            <label class="inline-flex items-center font-normal">
+                                <input type="checkbox" class="rounded bg-gray-200 border-none focus:ring-offset-0 focus:ring-0" name="notify_voters" value="closed">
+                                <span class="ml-2">Notify all voters</span>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
         <div class="flex items-center space-x-3">
             <div class="bg-gray-800 font-semibold text-center rounded-xl px-3 py-2">
@@ -153,7 +252,7 @@
                 </div>
                 <div class="mx-4 w-full">
                     <h4 class="text-xl font-semibold">
-                        <a href="#" class="hover:underline">Status changed to "Under construction"</a>
+                        <a href="#" class="hover:underline">Status changed to "Under Consideration"</a>
                     </h4>
                     <div class="text-gray-500">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum
                         dolor sit amet, consectetur adipisicing elit. Accusamus at cum cumque dicta distinctio
