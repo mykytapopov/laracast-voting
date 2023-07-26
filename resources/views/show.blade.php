@@ -40,19 +40,31 @@
                         <div class="text-gray-300">3 comments</div>
                     </div>
 
-                    <div class="flex items-center text-xs font-semibold space-x-2">
+                    <div
+                        x-data="{ isOpen: false }"
+                        class="flex items-center text-xs font-semibold space-x-2"
+                    >
                         <div
                             class="bg-gray-500 text-xs font-bold uppercase leading-none rounded-full text-center w-28 h-7 px-4 py-2">
                             Open
                         </div>
                         <button
-                            class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center">
+                            @click="isOpen = !isOpen"
+                            class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center"
+                        >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-three-dots" viewBox="0 0 16 16">
                                 <path
                                     d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                             </svg>
-                            <ul class="invisible absolute w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left ml-6">
+                            <ul
+                                x-cloak
+                                x-transition.origin.top.left
+                                x-show="isOpen"
+                                @click.away="isOpen = false"
+                                @keydown.escape.window="isOpen = false"
+                                class="absolute w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left ml-6"
+                            >
                                 <li><a href="#"
                                        class="hover:bg-gray-800 block px-5 py-3 transition duration-150 ease-in">Mark as
                                         spam</a></li>
@@ -69,13 +81,25 @@
 
     <div class="buttons-container flex items-center justify-between mt-6">
         <div class="flex items-center space-x-4 ml-6">
-            <div class="relative">
+            <div
+                x-data="{ isOpen: false }"
+                class="relative"
+            >
                 <button
-                    class="bg-blue-500 w-32 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150">
+                    @click="isOpen = !isOpen"
+                    type="button"
+                    class="bg-blue-500 w-32 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
+                >
                     <span>Reply</span>
                 </button>
                 <div
-                    class="hidden absolute z-10 w-96 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2">
+                    x-cloak
+                    x-transition.origin.top.left
+                    x-show="isOpen"
+                    @click.away="isOpen = false"
+                    @keydown.escape.window="isOpen = false"
+                    class="absolute z-10 w-96 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2"
+                >
                     <form action="#" method="POST" class="space-y-4 px-4">
                         <div>
                         <textarea name="idea_add" id="idea_add" cols="30" rows="4"
@@ -101,9 +125,15 @@
                     </form>
                 </div>
             </div>
-            <div class="relative">
-                <button type="button"
-                        class="flex w-32 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
+            <div
+                x-data="{ isOpen: false }"
+                class="relative"
+            >
+                <button
+                    @click="isOpen = !isOpen"
+                    type="button"
+                    class="flex w-32 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150"
+                >
                     <span class="mr-1">Set Status</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                          stroke="currentColor" class="w-4 h-4">
@@ -111,36 +141,52 @@
                     </svg>
                 </button>
                 <div
-                    class="absolute z-10 w-72 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2">
+                    x-cloak
+                    x-transition.origin.top.left
+                    x-show="isOpen"
+                    @click.away="isOpen = false"
+                    @keydown.escape.window="isOpen = false"
+                    class="absolute z-10 w-72 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2"
+                >
                     <form action="#" method="POST" class="space-y-4 px-4">
                         <div class="space-y-2">
                             <div>
                                 <label class="inline-flex items-center">
-                                    <input type="radio" class="text-gray-500 border-none focus:ring-offset-0 focus:ring-0" checked name="status" value="open">
+                                    <input type="radio"
+                                           class="text-gray-500 border-none focus:ring-offset-0 focus:ring-0" checked
+                                           name="status" value="open">
                                     <span class="ml-2">Open</span>
                                 </label>
                             </div>
                             <div>
                                 <label class="inline-flex items-center">
-                                    <input type="radio" class="text-purple-500 border-none focus:ring-offset-0 focus:ring-0" name="status" value="considering">
+                                    <input type="radio"
+                                           class="text-purple-500 border-none focus:ring-offset-0 focus:ring-0"
+                                           name="status" value="considering">
                                     <span class="ml-2">Considering</span>
                                 </label>
                             </div>
                             <div>
                                 <label class="inline-flex items-center">
-                                    <input type="radio" class="text-yellow-500 border-none focus:ring-offset-0 focus:ring-0" name="status" value="in_progress">
+                                    <input type="radio"
+                                           class="text-yellow-500 border-none focus:ring-offset-0 focus:ring-0"
+                                           name="status" value="in_progress">
                                     <span class="ml-2">In Progress</span>
                                 </label>
                             </div>
                             <div>
                                 <label class="inline-flex items-center">
-                                    <input type="radio" class="text-green-500 border-none focus:ring-offset-0 focus:ring-0" name="status" value="implemented">
+                                    <input type="radio"
+                                           class="text-green-500 border-none focus:ring-offset-0 focus:ring-0"
+                                           name="status" value="implemented">
                                     <span class="ml-2">Implemented</span>
                                 </label>
                             </div>
                             <div>
                                 <label class="inline-flex items-center">
-                                    <input type="radio" class="text-red-500 border-none focus:ring-offset-0 focus:ring-0" name="status" value="closed">
+                                    <input type="radio"
+                                           class="text-red-500 border-none focus:ring-offset-0 focus:ring-0"
+                                           name="status" value="closed">
                                     <span class="ml-2">Closed</span>
                                 </label>
                             </div>
@@ -170,7 +216,9 @@
 
                         <div>
                             <label class="inline-flex items-center font-normal">
-                                <input type="checkbox" class="rounded bg-gray-200 border-none focus:ring-offset-0 focus:ring-0" name="notify_voters" value="closed">
+                                <input type="checkbox"
+                                       class="rounded bg-gray-200 border-none focus:ring-offset-0 focus:ring-0"
+                                       name="notify_voters" value="closed">
                                 <span class="ml-2">Notify all voters</span>
                             </label>
                         </div>
@@ -215,25 +263,33 @@
                             <div>10 hours ago</div>
                         </div>
 
-                        <div class="flex items-center text-xs font-semibold space-x-2">
+                        <div
+                            x-data="{ isOpen: false }"
+                            class="flex items-center text-xs font-semibold space-x-2"
+                        >
                             <button
-                                class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center">
+                                @click="isOpen = !isOpen"
+                                class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center"
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-three-dots" viewBox="0 0 16 16">
                                     <path
                                         d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                                 </svg>
-                                <ul class="invisible absolute w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left ml-6">
-                                    <li>
-                                        <a href="#"
-                                           class="hover:bg-gray-800 block px-5 py-3 transition duration-150 ease-in"
-                                        >Mark as spam</a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                           class="hover:bg-gray-800 block px-5 py-3 transition duration-150 ease-in"
-                                        >Delete post</a>
-                                    </li>
+                                <ul
+                                    x-cloak
+                                    x-transition.origin.top.left
+                                    x-show="isOpen"
+                                    @click.away="isOpen = false"
+                                    @keydown.escape.window="isOpen = false"
+                                    class="absolute w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left ml-6 z-10"
+                                >
+                                    <li><a href="#"
+                                           class="hover:bg-gray-800 block px-5 py-3 transition duration-150 ease-in">Mark as
+                                            spam</a></li>
+                                    <li><a href="#"
+                                           class="hover:bg-gray-800 block px-5 py-3 transition duration-150 ease-in">Delete
+                                            post</a></li>
                                 </ul>
                             </button>
                         </div>
