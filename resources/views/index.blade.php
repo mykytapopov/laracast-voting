@@ -34,13 +34,15 @@
                     <button class="bg-gray-500 font-bold text-xs uppercase rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">Vote</button>
                 </div>
             </div>
-            <div class="flex px-2 py-6">
-                <a href="#" class="flex-none"><img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="w-14 h-14 rounded-xl"></a>
-                <div class="mx-4">
+            <div class="flex px-2 py-6 w-full">
+                <div class="flex-none">
+                    <a href="#"><img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar" class="w-14 h-14 rounded-xl"></a>
+                </div>
+                <div class="mx-4 w-full">
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">A random title can go here</a>
                     </h4>
-                    <div class="text-gray-500 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, ratione, rem! Aut commodi, doloribus eius magnam maxime quis ratione. Accusantium alias architecto beatae, commodi libero nisi rerum temporibus tenetur vero?</div>
+                    <div class="text-gray-500 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
                     <div class="flex items-center justify-between mt-6">
                         <div class="flex items-center text-xs font-semibold space-x-2 text-gray-600">
                             <div>10 hours ago</div>
@@ -124,7 +126,7 @@
                     <h4 class="text-xl font-semibold">
                         <a href="#" class="hover:underline">A random title can go here</a>
                     </h4>
-                    <div class="text-gray-500 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, ratione, rem! Aut commodi, doloribus eius magnam maxime quis ratione. Accusantium alias architecto beatae, commodi libero nisi rerum temporibus tenetur vero?</div>
+                    <div class="text-gray-500 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis consequatur corporis debitis ex facere laboriosam natus quo sit totam unde. Maxime, quo!</div>
                     <div class="flex items-center justify-between mt-6">
                         <div class="flex items-center text-xs font-semibold space-x-2 text-gray-600">
                             <div>10 hours ago</div>

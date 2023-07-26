@@ -49,7 +49,7 @@
         </a>
     </div>
 </header>
-<main class="container mx-auto flex max-w-5xl text-gray-300">
+<main class="container mx-auto flex max-w-7xl text-gray-300">
     <div class="max-w-xs mr-5">
         <div class="border-none rounded-xl mt-16 bg-gradient-to-b from-gray-600 to-gray-950 p-0.5">
             <div class="border-none rounded-xl bg-gray-800 w-full h-full">
@@ -77,17 +77,14 @@
                                   placeholder="Describe your idea"></textarea>
                     </div>
                     <div class="flex items-center justify-between space-x-3">
-                        <button type="button"
-                                class="flex w-1/2 items-center justify-center bg-gray-500 text-xs uppercase rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                 stroke="currentColor" class="w-4 h-4 transform -rotate-45">
+                        <button type="button" class="flex w-1/2 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 transform -rotate-45">
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                       d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
                             </svg>
                             <span class="ml-1">Attach</span>
                         </button>
-                        <button
-                            class="bg-blue-500 w-1/2 text-xs uppercase rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150">
+                        <button class="bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150" type="submit">
                             <span>Submit</span>
                         </button>
                     </div>
