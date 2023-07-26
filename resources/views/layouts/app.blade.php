@@ -15,10 +15,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans text-gray-900 text-sm h-full bg-gradient-to-bl from-gray-800 to-gray-950 bg-no-repeat bg-fixed">
-<header class="flex items-center justify-between px-8 py-4">
+<header class="flex flex-col md:flex-row items-center justify-between px-8 py-4">
     <a href="#" class="dark:text-gray-400 dark:hover:text-white focus:outline"><img
             src="{{ asset('img/negative-logo.svg') }}" alt="logo"></a>
-    <div class="flex items-center">
+    <div class="flex items-center mt-2 md:mt-0">
         @if (Route::has('login'))
             <div class="p-6 text-right z-10">
                 @auth
@@ -49,9 +49,9 @@
         </a>
     </div>
 </header>
-<main class="container mx-auto flex max-w-7xl text-gray-300">
-    <div class="max-w-xs mr-5">
-        <div class="border-none rounded-xl mt-16 bg-gradient-to-b from-gray-600 to-gray-950 p-0.5">
+<main class="container mx-auto flex max-w-7xl text-gray-300 flex-col md:flex-row">
+    <div class="max-w-xs md:mr-5 mx-auto md:mx-0">
+        <div class="md:sticky md:top-8 border-none rounded-xl mt-1 md:mt-16 bg-gradient-to-b from-gray-600 to-gray-950 p-0.5">
             <div class="border-none rounded-xl bg-gray-800 w-full h-full">
                 <div class="px-6 py-2 pt-6 text-center">
                     <h3 class="font-semibold text-base">Add an idea</h3>
@@ -92,8 +92,8 @@
             </div>
         </div>
     </div>
-    <div class="max-w-3xl w-full">
-        <nav class="flex items-center justify-between text-xs">
+    <div class="md:max-w-3xl px-2 md:px-0 w-full">
+        <nav class=" hidden md:flex items-center justify-between text-xs">
             <ul class="flex uppercase font-semibold space-x-10 border-b-4 pb-3 border-gray-500">
                 <li><a href="#" class="border-b-2 pb-3.5 border-blue-500">All ideas (87)</a></li>
                 <li><a href="#"
