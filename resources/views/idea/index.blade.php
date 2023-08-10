@@ -24,7 +24,8 @@
         </div>
     </div>
     <div class="ideas-container space-y-6 my-6">
-        <div class="idea-container bg-gray-800 rounded-xl flex hover:shadow-md hover:shadow-gray-700 transition duration-150 ease-in cursor-pointer">
+        @foreach($ideas as $idea)
+            <div class="idea-container bg-gray-800 rounded-xl flex hover:shadow-md hover:shadow-gray-700 transition duration-150 ease-in cursor-pointer">
             <div class="hidden md:block border-r border-gray-500 px-5 py-8">
                 <div class="text-center">
                     <div class="text-2xl font-semibold">12</div>
@@ -40,12 +41,12 @@
                 </div>
                 <div class="mx-4 w-full flex flex-col justify-between">
                     <h4 class="text-xl font-semibold mt-2 md:mt-0">
-                        <a href="#" class="hover:underline">A random title can go here</a>
+                        <a href="{{ route('idea.show', $idea) }}" class="hover:underline">{{ $idea->title }}</a>
                     </h4>
-                    <div class="text-gray-500 line-clamp-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+                    <div class="text-gray-500 line-clamp-3">{{ $idea->description }}</div>
                     <div class="flex md:items-center flex-col md:flex-row justify-between mt-6">
                         <div class="flex items-center text-xs font-semibold space-x-2 text-gray-600">
-                            <div>10 hours ago</div>
+                            <div>{{ $idea->created_at->diffForHumans() }}</div>
                             <div>&bull;</div>
                             <div>Category 1</div>
                             <div>&bull;</div>
@@ -88,6 +89,7 @@
                 </div>
             </div>
         </div>
+        @endforeach
         <div class="idea-container bg-gray-800 rounded-xl flex hover:shadow-md hover:shadow-gray-700 transition duration-150 ease-in cursor-pointer">
             <div class="hidden md:block border-r border-gray-500 px-5 py-8">
                 <div class="text-center">
@@ -256,5 +258,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="my-8 ">
+        {{ $ideas->links() }}
     </div>
 </x-app-layout>
