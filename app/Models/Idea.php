@@ -25,4 +25,9 @@ class Idea extends Model
     {
         return ['slug' => ['source' => 'title']];
     }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

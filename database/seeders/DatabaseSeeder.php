@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Idea;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -12,6 +11,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Idea::factory(30)->create();
+        $this->call([
+            CategorySeeder::class,
+            IdeaSeeder::class,
+        ]);
     }
 }
