@@ -35,29 +35,27 @@
                     </div>
 
                     <div
-                        x-data="{ isOpen: false }"
-                        class="flex items-center text-xs font-semibold space-x-2 mt-4 md:mt-0"
+                            x-data="{ isOpen: false }"
+                            class="flex items-center text-xs font-semibold space-x-2 mt-4 md:mt-0"
                     >
-                        <div
-                            class="bg-gray-500 text-xs font-bold uppercase leading-none rounded-full text-center w-28 h-7 px-4 py-2">
-                            Open
-                        </div>
+                        <div class="status {{ strtolower($idea->status->name) }} text-xs font-bold uppercase leading-none rounded-full text-center w-28 h-7 px-4 py-2"
+                        >{{ $idea->status->name }}</div>
                         <button
-                            @click="isOpen = !isOpen"
-                            class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center"
+                                @click="isOpen = !isOpen"
+                                class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center"
                         >
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                  class="bi bi-three-dots" viewBox="0 0 16 16">
                                 <path
-                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                             </svg>
                             <ul
-                                x-cloak
-                                x-transition.origin.top.left
-                                x-show="isOpen"
-                                @click.away="isOpen = false"
-                                @keydown.escape.window="isOpen = false"
-                                class="absolute w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left md:ml-6 top-8 md:top-6 right-0 md:left-0"
+                                    x-cloak
+                                    x-transition.origin.top.left
+                                    x-show="isOpen"
+                                    @click.away="isOpen = false"
+                                    @keydown.escape.window="isOpen = false"
+                                    class="absolute w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left md:ml-6 top-8 md:top-6 right-0 md:left-0"
                             >
                                 <li>
                                     <a href="#"
@@ -82,7 +80,9 @@
                             <div class="text-sm font-bold leading-none text-gray-300">12</div>
                             <div class="text-xs font-semibold leading-none text-gray-500">Votes</div>
                         </div>
-                        <button class="-mx-6 bg-gray-500 font-bold text-xs uppercase rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">Vote</button>
+                        <button class="-mx-6 bg-gray-500 font-bold text-xs uppercase rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
+                            Vote
+                        </button>
                     </div>
 
                 </div>
@@ -93,23 +93,23 @@
     <div class="buttons-container flex items-center justify-between mt-6">
         <div class="flex flex-col md:flex-row items-center md:space-x-4 md:ml-6">
             <div
-                x-data="{ isOpen: false }"
-                class="relative"
+                    x-data="{ isOpen: false }"
+                    class="relative"
             >
                 <button
-                    @click="isOpen = !isOpen"
-                    type="button"
-                    class="bg-blue-500 w-32 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
+                        @click="isOpen = !isOpen"
+                        type="button"
+                        class="bg-blue-500 w-32 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
                 >
                     <span>Reply</span>
                 </button>
                 <div
-                    x-cloak
-                    x-transition.origin.top.left
-                    x-show="isOpen"
-                    @click.away="isOpen = false"
-                    @keydown.escape.window="isOpen = false"
-                    class="absolute z-10 w-80 md:w-96 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2"
+                        x-cloak
+                        x-transition.origin.top.left
+                        x-show="isOpen"
+                        @click.away="isOpen = false"
+                        @keydown.escape.window="isOpen = false"
+                        class="absolute z-10 w-80 md:w-96 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2"
                 >
                     <form action="#" method="POST" class="space-y-4 px-4">
                         <div>
@@ -128,8 +128,8 @@
                                 <span class="ml-1">Attach</span>
                             </button>
                             <button
-                                class="bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
-                                type="submit">
+                                    class="bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
+                                    type="submit">
                                 <span>Post</span>
                             </button>
                         </div>
@@ -137,13 +137,13 @@
                 </div>
             </div>
             <div
-                x-data="{ isOpen: false }"
-                class="relative"
+                    x-data="{ isOpen: false }"
+                    class="relative"
             >
                 <button
-                    @click="isOpen = !isOpen"
-                    type="button"
-                    class="mt-2 md:mt-0 flex w-32 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150"
+                        @click="isOpen = !isOpen"
+                        type="button"
+                        class="mt-2 md:mt-0 flex w-32 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150"
                 >
                     <span class="mr-1">Set Status</span>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -152,12 +152,12 @@
                     </svg>
                 </button>
                 <div
-                    x-cloak
-                    x-transition.origin.top.left
-                    x-show="isOpen"
-                    @click.away="isOpen = false"
-                    @keydown.escape.window="isOpen = false"
-                    class="absolute z-10 w-72 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2"
+                        x-cloak
+                        x-transition.origin.top.left
+                        x-show="isOpen"
+                        @click.away="isOpen = false"
+                        @keydown.escape.window="isOpen = false"
+                        class="absolute z-10 w-72 font-semibold text-sm bg-gray-800 border border-gray-700 shadow-lg shadow-gray-800 rounded-xl py-3 text-left mt-2"
                 >
                     <form action="#" method="POST" class="space-y-4 px-4">
                         <div class="space-y-2">
@@ -219,8 +219,8 @@
                                 <span class="ml-1">Attach</span>
                             </button>
                             <button
-                                class="bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
-                                type="submit">
+                                    class="bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150"
+                                    type="submit">
                                 <span>Update</span>
                             </button>
                         </div>
@@ -275,28 +275,29 @@
                         </div>
 
                         <div
-                            x-data="{ isOpen: false }"
-                            class="flex items-center text-xs font-semibold space-x-2"
+                                x-data="{ isOpen: false }"
+                                class="flex items-center text-xs font-semibold space-x-2"
                         >
                             <button
-                                @click="isOpen = !isOpen"
-                                class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center"
+                                    @click="isOpen = !isOpen"
+                                    class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-three-dots" viewBox="0 0 16 16">
                                     <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                                 </svg>
                                 <ul
-                                    x-cloak
-                                    x-transition.origin.top.left
-                                    x-show="isOpen"
-                                    @click.away="isOpen = false"
-                                    @keydown.escape.window="isOpen = false"
-                                    class="absolute z-10 w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left md:ml-6 top-8 md:top-6 right-0 md:left-0"
+                                        x-cloak
+                                        x-transition.origin.top.left
+                                        x-show="isOpen"
+                                        @click.away="isOpen = false"
+                                        @keydown.escape.window="isOpen = false"
+                                        class="absolute z-10 w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left md:ml-6 top-8 md:top-6 right-0 md:left-0"
                                 >
                                     <li><a href="#"
-                                           class="hover:bg-gray-800 block px-5 py-3 transition duration-150 ease-in">Mark as
+                                           class="hover:bg-gray-800 block px-5 py-3 transition duration-150 ease-in">Mark
+                                            as
                                             spam</a></li>
                                     <li><a href="#"
                                            class="hover:bg-gray-800 block px-5 py-3 transition duration-150 ease-in">Delete
@@ -337,11 +338,11 @@
 
                         <div class="flex items-center text-xs font-semibold space-x-2">
                             <button
-                                class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center">
+                                    class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-three-dots" viewBox="0 0 16 16">
                                     <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                                 </svg>
                                 <ul class="invisible absolute w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left ml-6">
                                     <li>
@@ -387,11 +388,11 @@
 
                         <div class="flex items-center text-xs font-semibold space-x-2">
                             <button
-                                class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center">
+                                    class="relative bg-gray-500 hover:bg-gray-400 rounded-full h-7 transition duration-150 ease-in px-3 items-center">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                      class="bi bi-three-dots" viewBox="0 0 16 16">
                                     <path
-                                        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
                                 </svg>
                                 <ul class="invisible absolute w-44 font-semibold bg-gray-900 shadow-lg shadow-gray-800 rounded-xl py-3 text-left ml-6">
                                     <li>

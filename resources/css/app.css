@@ -38,3 +38,23 @@
     opacity: 1;
 }
 
+div.status.open {
+    @apply bg-gray-500
+}
+
+div.status.considering {
+    @apply bg-violet-600
+}
+
+div.status.in-progress {
+    @apply bg-yellow-600
+}
+
+div.status.implemented {
+    @apply bg-green-600
+}
+
+div.status.closed {
+    @apply bg-red-600
+}
+

@@ -12,59 +12,41 @@ class ShowIdeasTest extends TestCase
 {
     use RefreshDatabase;
 
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-        $this->seed(CategorySeeder::class);
-    }
-
     /** @test */
     public function list_of_ideas_show_on_main_page()
     {
-        $categoryOne = Category::find(1);
-        $categoryTwo = Category::find(2);
-
-        $ideaOne = Idea::factory()->create([
-            'title' => 'My first idea',
-            'category_id' => $categoryOne->id,
-            'description' => 'Description of my first idea',
-        ]);
-
-        $ideaTwo = Idea::factory()->create([
-            'title' => 'My second idea',
-            'category_id' => $categoryTwo->id,
-            'description' => 'Description of my second idea',
-        ]);
+        $ideaOne = Idea::find(1);
+        $ideaTwo = Idea::find(2);
 
         $response = $this->get(route('idea.index'));
 
         $response->assertSuccessful();
         $response->assertSee([
             $ideaOne->title,
-            $ideaTwo->title,
             $ideaOne->description,
+            $ideaOne->category->name,
+            $ideaOne->status->name,
+            $ideaTwo->title,
             $ideaTwo->description,
-            $categoryOne->name,
-            $categoryTwo->name
+            $ideaTwo->category->name,
+            $ideaTwo->status->name,
         ]);
     }
 
     /** @test */
     public function singe_idea_shows_correctly_the_show_page()
     {
-        $categoryOne = Category::find(1);
-
-        $idea = Idea::factory()->create([
-            'title' => 'My first idea',
-            'category_id' => $categoryOne->id,
-            'description' => 'Description of my first idea',
-        ]);
+        $idea = Idea::find(1);
 
         $response = $this->get(route('idea.show', $idea));
 
         $response->assertSuccessful();
-        $response->assertSee([$idea->title, $idea->description, $categoryOne->name]);
+        $response->assertSee([
+            $idea->title,
+            $idea->description,
+            $idea->category->name,
+            $idea->status->name,
+        ]);
     }
 
     /** @test */
@@ -82,19 +64,27 @@ class ShowIdeasTest extends TestCase
 
         $response = $this->get(route('idea.index'));
 
-        $response->assertSee($ideaOne->title);
-        $response->assertSee($ideaOne->description);
+        $response->assertSee([
+            $ideaOne->title,
+            $ideaOne->description,
+        ]);
 
-        $response->assertDontSee($ideaEleven->title);
-        $response->assertDontSee($ideaEleven->description);
+        $response->assertDontSee([
+            $ideaEleven->title,
+            $ideaEleven->description,
+        ]);
 
         $response = $this->get(route('idea.index', ['page' => 2]));
 
-        $response->assertDontSee($ideaOne->title);
-        $response->assertDontSee($ideaOne->description);
+        $response->assertDontSee([
+            $ideaOne->title,
+            $ideaOne->description,
+        ]);
 
-        $response->assertSee($ideaEleven->title);
-        $response->assertSee($ideaEleven->description);
+        $response->assertSee([
+            $ideaEleven->title,
+            $ideaEleven->description,
+        ]);
     }
 
     /** @test */
@@ -103,12 +93,14 @@ class ShowIdeasTest extends TestCase
         $ideaOne = Idea::factory()->create([
             'title' => 'My first idea',
             'category_id' => 1,
+            'status_id' => 1,
             'description' => 'Description of my first idea',
         ]);
 
         $ideaTwo = Idea::factory()->create([
             'title' => 'My first idea',
             'category_id' => 2,
+            'status_id' => 2,
             'description' => 'Description of my second idea',
         ]);
 
@@ -120,5 +112,12 @@ class ShowIdeasTest extends TestCase
         $response = $this->get(route('idea.show', $ideaTwo));
         $response->assertSuccessful();
         $this->assertTrue(request()->path() !== $pathOne);
+    }
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->seed();
     }
 }
