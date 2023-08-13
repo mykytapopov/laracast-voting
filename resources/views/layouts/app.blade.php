@@ -12,12 +12,13 @@
     <link href="https://fonts.bunny.net/css?family=Open+Sans:400,500,600&display=swap" rel="stylesheet" />
 
     <!-- Scripts -->
+    @livewireStyles
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-sans text-gray-900 text-sm h-full bg-gradient-to-bl from-gray-800 to-gray-950 bg-no-repeat bg-fixed">
 <header class="flex flex-col md:flex-row items-center justify-between px-8 py-4">
     <a href="/" class="dark:text-gray-400 dark:hover:text-white focus:outline"><img
-            src="{{ asset('img/negative-logo.svg') }}" alt="logo"></a>
+                src="{{ asset('img/negative-logo.svg') }}" alt="logo"></a>
     <div class="flex items-center mt-2 md:mt-0">
         @if (Route::has('login'))
             <div class="p-6 text-right z-10">
@@ -55,40 +56,30 @@
             <div class="border-none rounded-xl bg-gray-800 w-full h-full">
                 <div class="px-6 py-2 pt-6 text-center">
                     <h3 class="font-semibold text-base">Add an idea</h3>
-                    <p class="text-xs mt-4">Let us know what would you like, and we'll take a look over!</p>
+                    <p class="text-xs mt-4">
+                        @auth
+                            Let us know what would you like, and we'll take a look over!
+                        @else
+                            Please login to create an idea.
+                        @endauth
+                    </p>
                 </div>
-                <form action="#" method="POST" class="space-y-4 px-4 py-6">
-                    <div>
-                        <input type="text"
-                               class="w-full rounded-xl bg-gray-700 px-4 py-2 border-none placeholder-gray-500 text-sm"
-                               placeholder="Your Idea">
+                @auth
+                    <livewire:create-idea />
+                @else
+                    <div class="text-center px-4 py-6 space-y-4">
+                        <a
+                                href="{{ route('login') }}"
+                                class="inline-block bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150">
+                            Login
+                        </a>
+                        <a
+                                href="{{ route('register') }}"
+                                class="inline-block bg-gray-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150">
+                            Sign Up
+                        </a>
                     </div>
-                    <div>
-                        <select name="category_add" id="category_add"
-                                class="w-full rounded-xl px-4 py-2 border-none bg-gray-700 text-sm">
-                            <option value="Category one">Category one</option>
-                            <option value="Category two">Category two</option>
-                            <option value="Category three">Category three</option>
-                        </select>
-                    </div>
-                    <div>
-                        <textarea name="idea_add" id="idea_add" cols="30" rows="4"
-                                  class="w-full rounded-xl bg-gray-700 text-sm border-none px-4 py-2 placeholder-gray-500"
-                                  placeholder="Describe your idea"></textarea>
-                    </div>
-                    <div class="flex items-center justify-between space-x-3">
-                        <button type="button" class="flex w-1/2 items-center justify-center bg-gray-500 text-xs rounded-xl px-4 py-3 border border-gray-500 hover:border-gray-300 transition ease-in duration-150">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 transform -rotate-45">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                      d="M18.375 12.739l-7.693 7.693a4.5 4.5 0 01-6.364-6.364l10.94-10.94A3 3 0 1119.5 7.372L8.552 18.32m.009-.01l-.01.01m5.699-9.941l-7.81 7.81a1.5 1.5 0 002.112 2.13" />
-                            </svg>
-                            <span class="ml-1">Attach</span>
-                        </button>
-                        <button class="bg-blue-500 w-1/2 text-xs rounded-xl px-4 py-3 border border-blue-500 hover:border-gray-300 transition ease-in duration-150" type="submit">
-                            <span>Submit</span>
-                        </button>
-                    </div>
-                </form>
+                @endauth
             </div>
         </div>
     </div>
@@ -118,5 +109,6 @@
         </div>
     </div>
 </main>
+@livewireScripts
 </body>
 </html>
