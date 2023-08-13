@@ -15,8 +15,8 @@ class ShowIdeasTest extends TestCase
     /** @test */
     public function list_of_ideas_show_on_main_page()
     {
-        $ideaOne = Idea::find(1);
-        $ideaTwo = Idea::find(2);
+        $ideaOne = Idea::find(30);
+        $ideaTwo = Idea::find(29);
 
         $response = $this->get(route('idea.index'));
 
@@ -52,14 +52,12 @@ class ShowIdeasTest extends TestCase
     /** @test */
     public function ideas_pagination_works()
     {
-        Idea::factory(Idea::PER_PAGE + 1)->create();
-
-        $ideaOne = Idea::find(1);
-        $ideaOne->title = 'My First Idea';
+        $ideaOne = Idea::find(30);
+        $ideaOne->title = 'First Page Idea';
         $ideaOne->save();
 
-        $ideaEleven = Idea::find(11);
-        $ideaEleven->title = 'My Eleventh Idea';
+        $ideaEleven = Idea::find(19);
+        $ideaEleven->title = 'Next Page Idea';
         $ideaEleven->save();
 
         $response = $this->get(route('idea.index'));
